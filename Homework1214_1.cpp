@@ -4,17 +4,43 @@
 
 using namespace std;
 
+class detail {
+    public:
+        string explanation;
+        string request;
+
+        detail(string aExplanation,string aRequest) {
+            explanation = aExplanation;
+            request = aRequest;
+        }
+};
+
 int main()
 {
-    cout << "選擇題目\f(\f輸入數字\f1、2、3、4\f)" << "\n\n" << "[1]\f用\fFor\f迴圈顯示從\f10\f~\f1" << '\n' << "[2]\f用兩個迴圈\f1.從\f0\f~\f5\f2.從\f6\f~\f10" << "\n\n" << "[3]\f在一個\f0\f~\f50的陣列中\f只顯示出特定數字倍數" << '\n' << "[4]\f衍生題:\f用同一個\fFor\f迴圈顯示相反過來的答案\f=\f只能改陣列內容" << "\n\n" << "[5]\f用While印出\f1\f~\f10" << '\n' << "[6]\f給任意一個數\f給出此數\f2\f的餘數" << "\n\n";
+    detail info1("用 For 迴圈顯示從 10 ~ 1", "必須用索引跟陣列");
+    detail info2("用兩個迴圈 1.從 0 ~ 5 2.從 6 ~ 10", "");
+    detail info3("在一個 0 ~ 50 的陣列中 只顯示出特定數字倍數","特定數字倍數: 2");
+    detail info4("在一個 0 ~ 50 的陣列中 只顯示出特定數字倍數", "用同一個 For 迴圈顯示相反過來的答案 = 只能改陣列內容");
+    detail info5("用 While 印出 1 ~ 10","");
+    detail info6("給任意一個數 給出此數 2 的餘數", "兩個寫法都要寫出來\n計算式不要用 [ % ]");
+
+    string question("選擇題目 ( 輸入數字 1、2、3、4 )\n\n[1] "+info1.explanation+"\n[2] "+info2.explanation+"\n[3] "+info3.explanation+"\n[4] "+info4.explanation+"\n[5] "+info5.explanation+"\n[6] "+info6.explanation+"\n\n");
+
+    string content1("\n說明 : " + info1.explanation + "\n要求 : " + info1.request + "\n\n輸出 : \n");
+    string content2("\n說明 : " + info2.explanation + "\n要求 : " + info2.request + "\n\n輸出 : \n");
+    string content3("\n說明 : " + info3.explanation + "\n要求 : " + info3.request + "\n\n輸出 : \n");
+    string content4("\n說明 : " + info4.explanation + "\n要求 : " + info4.request + "\n\n輸出 : \n");
+    string content5("\n說明 : " + info5.explanation + "\n要求 : " + info5.request + "\n\n輸出 : \n");
+    string content6("\n說明 : " + info6.explanation + "\n要求 : " + info6.request + "\n\n輸出 : \n");
+
+    cout << question;
     int choose;
-    cout << "題目\f-\f";
+    cout << "題目 - ";
     cin >> choose;
-    cout << '\n';
     switch (choose)
     {
         case 1: {
-            cout << "說明\f:" << '\n' << "用 For 迴圈顯示從 10 ~1" << "\n\n" << "要求\f:" << '\n' << "必須用索引跟陣列" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content1;
             vector<int> vec1 = { 1,2,3,4,5,6,7,8,9,10 };
             int b = 10;
             for (int a = 0;a <= 10;a++) {
@@ -27,7 +53,7 @@ int main()
             break;
         }
         case 2: {
-            cout << "說明\f:" << '\n' << "用兩個迴圈 1.從 0 ~ 5 2.從 6 ~ 10" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content2;
             int c = 0;
             for (;c <= 5;c++) {
                 cout << c << endl;
@@ -38,7 +64,7 @@ int main()
             break;
         }
         case 3: {
-            cout << "說明\f:" << '\n' << "在一個 0 ~ 50 的陣列中 只顯示出特定數字倍數" << "\n\n" << "要求\f:" << '\n' << "特定數字倍數: 2" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content3;
             vector<int> vec2;
             int d = 0, e = 0;
             while (d < 50)
@@ -52,7 +78,7 @@ int main()
             break;
         }
         case 4: {
-            cout << "說明\f:" << '\n' << "在一個 0 ~ 50 的陣列中 只顯示出特定數字倍數" << "\n\n" << "要求\f:" << '\n' << "用同一個 For 迴圈顯示相反過來的答案 = 只能改陣列內容" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content4;
             vector<int> vec3;
             int f = 50, g = 0;
             for (;f >= 0;f -= 2) {
@@ -66,7 +92,7 @@ int main()
             break;
         }
         case 5: {
-            cout << "說明\f:" << '\n' << "用While印出 1 ~ 10" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content5;
             int h = 1;
             while (h <= 10)
             {
@@ -77,23 +103,21 @@ int main()
             break;
         }
         case 6: {
-            cout << "說明\f:" << '\n' << "給任意一個數 給出此數 2 的餘數" << "\n\n" << "要求\f:" << '\n' << "兩個寫法都要寫出來" << '\n' << "計算式不要用 [ % ]" << "\n\n" << "以下為題目要求輸出\f:" << "\n\n";
+            cout << content6;
             int i, j, k;
             cout << "給予任意數 - " << "";
             cin >> i;
             cout << '\n';
             j = i, k = i;
             if (i >= 0) {
-                // while 寫法
                 while (i > 1)i -= 2;
-                // for 寫法
                 for (;k > 1;k -= 2);
                 cout << "[For] " << j << " 的餘數為 " << k << "\n";
                 cout << "[While] " << j << " 的餘數為 " << i << "\n";
                 break;
             }
             else {
-                cout << "程式太爛 無法計算負數 ;(";
+                cout << "程式太爛 無法計算負數 ;(\n";
                 break;
             }
         }
